@@ -1,5 +1,5 @@
 {
-   'name': 'NY Shoes',
+   'name': 'nypw_product',
    'summary':"""Need to auto calculate price for NY P&W Shoes""",
    'description':"""
       NY P&W Shoes is a shoe distributor in New York.

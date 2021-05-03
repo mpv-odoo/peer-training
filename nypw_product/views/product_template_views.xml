@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <record model="ir.ui.view" id="product_template_only_form_view_inherit_ny">
+         <field name="name">product.template.product.form.inherit.ny</field>
+         <field name="model">product.template</field>
+         <field name="inherit_id" ref="product.product_template_only_form_view"/>
+         <field name="arch" type="xml">
+            <!--
+               Add pairs_per_case and price_per_pair to the view right 
+               before the sales price
+            -->
+            <xpath expr="//label[@for='list_price']" position="before">
+               <field name="pairs_per_case"/>
+               <field name="price_per_pair"/>
+            </xpath>
+            <!-- 
+               Make the Sales Price field (list_price) readonly when 
+               either pairs_per_case or price_per_pair are set to a 
+               value other than 0
+            -->
+            <xpath expr="//field[@name='list_price']" position="attributes">
+               <attribute name="attrs">
+                  {'readonly': ['|', ('pairs_per_case','!=',0),('price_per_pair','!=',0)]}
+               </attribute>
+            </xpath>
+         </field>
+      </record>
+   </data>
+</odoo>
