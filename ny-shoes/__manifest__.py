@@ -12,9 +12,9 @@
    'website': '',
    'category': 'Training',
    'version': '.1',
-   'depends': ['base'],
-   'date': [
-
+   'depends': ['base', 'product'],
+   'data': [
+      'views/product_template_views.xml'
    ],
    'demo': [
 
